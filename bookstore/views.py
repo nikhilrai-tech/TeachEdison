@@ -7,7 +7,7 @@ from reviews . serializers import ReviewSerializer
 from django.core.exceptions import ValidationError
 from django.views.decorators.cache import cache_page
 from django.db import transaction
-from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework_simplejwt.authentication import JWTTokenUserAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import authentication_classes, permission_classes
 from rest_framework.pagination import PageNumberPagination
@@ -18,7 +18,8 @@ class CustomPageNumberPagination(PageNumberPagination):
     max_page_size = 100
 
 @api_view(['GET'])
-@authentication_classes([JWTAuthentication])
+@cache_page(60 * 1)
+@authentication_classes([JWTTokenUserAuthentication])
 @permission_classes([IsAuthenticated])
 def get_books(request):
     try:
@@ -44,7 +45,7 @@ def get_books(request):
         return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
-@authentication_classes([JWTAuthentication])
+@authentication_classes([JWTTokenUserAuthentication])
 @permission_classes([IsAuthenticated])
 def get_book_detail(request, pk):
     try:
@@ -59,7 +60,7 @@ def get_book_detail(request, pk):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
 @api_view(['POST'])
-@authentication_classes([JWTAuthentication])
+@authentication_classes([JWTTokenUserAuthentication])
 @permission_classes([IsAuthenticated])
 def create_book(request):
     try:
@@ -75,7 +76,7 @@ def create_book(request):
 
 @transaction.atomic
 @api_view(['PUT', 'PATCH'])
-@authentication_classes([JWTAuthentication])
+@authentication_classes([JWTTokenUserAuthentication])
 @permission_classes([IsAuthenticated])
 def update_book(request, pk):
     try:
@@ -94,7 +95,7 @@ def update_book(request, pk):
         return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 @api_view(['DELETE'])
-@authentication_classes([JWTAuthentication])
+@authentication_classes([JWTTokenUserAuthentication])
 @permission_classes([IsAuthenticated])
 def soft_delete_book(request, pk):
     try:
@@ -110,7 +111,7 @@ def soft_delete_book(request, pk):
         return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 @api_view(['POST'])
-@authentication_classes([JWTAuthentication])
+@authentication_classes([JWTTokenUserAuthentication])
 @permission_classes([IsAuthenticated])
 def restore_book(request, pk):
     try:
@@ -123,7 +124,7 @@ def restore_book(request, pk):
         return Response({'error': 'Book not found.'}, status=status.HTTP_404_NOT_FOUND)
     
 @api_view(['POST'])
-@authentication_classes([JWTAuthentication])
+@authentication_classes([JWTTokenUserAuthentication])
 @permission_classes([IsAuthenticated])
 def create_author(request):
     try:
