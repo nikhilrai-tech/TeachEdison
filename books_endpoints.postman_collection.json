@@ -1,0 +1,491 @@
+{
+	"info": {
+		"_postman_id": "3c53570d-0f77-4a66-bd12-8e34b66f171b",
+		"name": "books_endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23200334"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"nik\",\r\n\"email\":\"jhfg@gmail.com\",\r\n\"password\":12345}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/register/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"nik\",\r\n    \"password\": 12345\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "refresh token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcwMzM5ODA4MywiaWF0IjoxNzAzMzExNjgzLCJqdGkiOiI1Mjc4ODYzZGJjYWM0NzYzOWI5Njc2YjRiNDNlNmI5ZCIsInVzZXJfaWQiOjF9.N9m-tx9ZvHI6RsIqjvhHwIu8omCXhwSZjLrRXfXUfYI\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/user/token/refresh/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"token",
+						"refresh",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "review",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"book\": 1,\r\n    \"user\": 1, \r\n    \"rating\": 5,\r\n    \"comment\": \"This book is excellent!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/reviews/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"reviews",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "review",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/reviews/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"reviews",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_author",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzMzI0Mzc2LCJpYXQiOjE3MDMzMjQwNzYsImp0aSI6IjMxMWI0MDdjMTc0MDQ2ODdhOTBlZjg1OWY3NGU3NGU2IiwidXNlcl9pZCI6MX0.fFIxSlwkVEVJwPg3d7TZE7-YUZ6nY87mH1pmy52dQ1Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"pki\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/books/author/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"books",
+						"author",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_book",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzMzI0Mzc2LCJpYXQiOjE3MDMzMjQwNzYsImp0aSI6IjMxMWI0MDdjMTc0MDQ2ODdhOTBlZjg1OWY3NGU3NGU2IiwidXNlcl9pZCI6MX0.fFIxSlwkVEVJwPg3d7TZE7-YUZ6nY87mH1pmy52dQ1Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Book \",\r\n    \"author\": \"1\",  \r\n    \"genre\": \"gfg\",\r\n    \"publication_year\": \"2021\",\r\n    \"description\": \"A captivating book description.\",\r\n    \"isbn\":1000000000000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/books/books/create/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"books",
+						"books",
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getallbooks",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzMzI0Mzc2LCJpYXQiOjE3MDMzMjQwNzYsImp0aSI6IjMxMWI0MDdjMTc0MDQ2ODdhOTBlZjg1OWY3NGU3NGU2IiwidXNlcl9pZCI6MX0.fFIxSlwkVEVJwPg3d7TZE7-YUZ6nY87mH1pmy52dQ1Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/books/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"books",
+						"books"
+					]
+				},
+				"description": "\nThis endpoint makes an HTTP GET request to fetch a list of books from the server. The request does not include a request body. \n\n### Response\nThe server responds with a status code of 200, indicating a successful request. The response body contains an array of book objects, each with the following properties:\n- `id` (number): The unique identifier for the book.\n- `author` (number): The unique identifier for the author of the book.\n- `title` (string): The title of the book.\n- `isbn` (string): The ISBN (International Standard Book Number) of the book.\n- `genre` (string): The genre/category of the book.\n- `publication_year` (number): The year of publication of the book.\n- `is_active` (boolean): Indicates whether the book is currently active.\n- `is_deleted` (boolean): Indicates whether the book has been deleted.\n- `is_restored` (boolean): Indicates whether the book has been restored after deletion.\n\n"
+			},
+			"response": []
+		},
+		{
+			"name": "get_filterbooks",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzMzE0Njg3LCJpYXQiOjE3MDMzMTE2ODMsImp0aSI6IjcwYWNlZDAzYmVjNDQ3MmFiMzkzYzg0Mzc5YTM5N2RkIiwidXNlcl9pZCI6MX0.6tqqMCmUVUZASfV1KrgbYitjU65rrg1qA8NKm7u6l9M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "author",
+						"value": "nikhil",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/books/books/?publication_year=2020",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"books",
+						"books",
+						""
+					],
+					"query": [
+						{
+							"key": "publication_year",
+							"value": "2020"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_book_detail",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/books/books/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"books",
+						"books",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_book",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzMzE0Njg3LCJpYXQiOjE3MDMzMTE2ODMsImp0aSI6IjcwYWNlZDAzYmVjNDQ3MmFiMzkzYzg0Mzc5YTM5N2RkIiwidXNlcl9pZCI6MX0.6tqqMCmUVUZASfV1KrgbYitjU65rrg1qA8NKm7u6l9M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"author\": 2,\r\n    \"title\": \"vcyfxtdtycrx\",\r\n    \"isbn\": \"iugyftyctx4\",\r\n    \"genre\": \"hjvchhsvhdsghdgkjsg\",\r\n    \"publication_year\": 2022\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/books/books/6/update/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"books",
+						"books",
+						"6",
+						"update",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "soft_delete_book",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzMzE1MDAzLCJpYXQiOjE3MDMzMTE2ODMsImp0aSI6IjFlY2JkYzU2MzBmOTRmMjBiNzE1M2MwN2NjN2U2Zjc2IiwidXNlcl9pZCI6MX0.390hl6guoqeEDttFEM72biL-6qarWZV2EU0s0UW_JDI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/books/books/7/delete/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"books",
+						"books",
+						"7",
+						"delete",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "restore_book",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzAzMzE1MDAzLCJpYXQiOjE3MDMzMTE2ODMsImp0aSI6IjFlY2JkYzU2MzBmOTRmMjBiNzE1M2MwN2NjN2U2Zjc2IiwidXNlcl9pZCI6MX0.390hl6guoqeEDttFEM72biL-6qarWZV2EU0s0UW_JDI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/books/books/7/restore/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"books",
+						"books",
+						"7",
+						"restore",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
