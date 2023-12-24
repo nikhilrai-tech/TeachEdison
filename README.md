@@ -26,7 +26,8 @@
     pip install -r requirements.txt
     ```
 5.**Manually update the settings.py file for connecting the mysql:**
-    ```DATABASES = {
+    ```
+    DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         **"NAME": 'Your_schema_name',**
@@ -37,9 +38,9 @@
         "OPTIONS": {"charset": "utf8mb4"},
     }
         }
-        ```
+    ```
 
-5. **Apply migrations:**
+6. **Apply migrations:**
 
     Do the migrations using below commands 
     ```
@@ -50,7 +51,7 @@
 
 
 
-6. **Run the development server:**
+7. **Run the development server:**
 
     ```bash
     python manage.py runserver
