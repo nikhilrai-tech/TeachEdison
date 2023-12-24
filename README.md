@@ -26,7 +26,7 @@
     pip install -r requirements.txt
     ```
 5.**Manually update the settings.py file for connecting the mysql:**
-DATABASES = {
+    ```DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         **"NAME": 'Your_schema_name',**
@@ -36,15 +36,17 @@ DATABASES = {
         **"PASSWORD": 'Your_password',**
         "OPTIONS": {"charset": "utf8mb4"},
     }
-}
+        }
+        ```
 
 5. **Apply migrations:**
 
- Do the migrations using below commands 
+    Do the migrations using below commands 
+    ```
+        python manage.py makemigrations bookstore reviews user
 
-python manage.py makemigrations bookstore reviews user
-
-python3 manage.py migrate
+        python3 manage.py migrate
+    ```
 
 
 
