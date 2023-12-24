@@ -1,10 +1,14 @@
 # TechEdison
+
 ## Prerequisites
+
+Ensure you have the following prerequisites installed before setting up the project:
 
 - Python (version 3.9.13)
 - Virtualenv
-- MySql server (and / My SQL workbench)
-- IDE (vscode)
+- MySQL server (and MySQL Workbench)
+- IDE (VSCode recommended)
+
 ## Getting Started
 
 1. **Clone the repository:**
@@ -20,38 +24,42 @@
     source venv/bin/activate   # On Windows, use 'venv\Scripts\activate'
     ```
 
-4. **Install dependencies:**
+3. **Install dependencies:**
 
     ```bash
     pip install -r requirements.txt
     ```
-5.**Manually update the settings.py file for connecting the mysql:**
-    ```
+
+4. **Manually update the settings.py file for connecting to MySQL:**
+
+    Open the `settings.py` file and update the `DATABASES` section:
+
+    ```python
     DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        **"NAME": 'Your_schema_name',**
-        "HOST": "127.0.0.1",
-        "PORT": "3306",
-        **"USER": 'Your_username',**
-        **"PASSWORD": 'Your_password',**
-        "OPTIONS": {"charset": "utf8mb4"},
-    }
+        "default": {
+            "ENGINE": "django.db.backends.mysql",
+            "NAME": 'Your_schema_name',
+            "HOST": "127.0.0.1",
+            "PORT": "3306",
+            "USER": 'Your_username',
+            "PASSWORD": 'Your_password',
+            "OPTIONS": {"charset": "utf8mb4"},
         }
+    }
     ```
 
-6. **Apply migrations:**
+    Replace 'Your_schema_name', 'Your_username', and 'Your_password' with your actual MySQL schema name, username, and password.
 
-    Do the migrations using below commands 
+5. **Apply migrations:**
+
+    Apply migrations using the following commands:
+
+    ```bash
+    python manage.py makemigrations bookstore reviews user
+    python manage.py migrate
     ```
-        python manage.py makemigrations bookstore reviews user
 
-        python3 manage.py migrate
-    ```
-
-
-
-7. **Run the development server:**
+6. **Run the development server:**
 
     ```bash
     python manage.py runserver
